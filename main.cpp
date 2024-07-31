@@ -4,8 +4,8 @@
 #include <fstream>
 #include <sstream>
 
-std::vector<std::vector<std::string>> loadDataset(const std::string &path) {
-    std::vector<std::vector<std::string>> dataset;
+std::vector<std::vector<std::string> > loadDataset(const std::string &path) {
+    std::vector<std::vector<std::string> > dataset;
     std::ifstream file(path);
 
     if (!file.is_open()) {
@@ -38,15 +38,17 @@ std::vector<std::vector<std::string>> loadDataset(const std::string &path) {
 
 
 int main() {
-    std::string path = "train.csv";
-    std::vector<std::vector<std::string>> dataset = loadDataset(path);
+    std::string path = "train_sample.csv";
+    std::vector<std::vector<std::string> > dataset = loadDataset(path);
     std::vector<std::string> first_row = dataset[0];
 
-    for (const auto& cell : first_row) {
-        std::cout << cell << " ";
+    // Print the loaded data
+    for (const auto& row : dataset) {
+        for (const auto& cell : row) {
+            std::cout << cell << " ";
+        }
+        std::cout << std::endl;
     }
-
-    std::cout << std::endl;
 
     return 0;
 }
