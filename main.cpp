@@ -26,7 +26,6 @@ std::vector<std::vector<std::string> > loadDataset(const std::string &path) {
 
             }
             i++;
-            // row.push_back(cell);
         }
 
         dataset.push_back(row);
@@ -40,9 +39,7 @@ std::vector<std::vector<std::string> > loadDataset(const std::string &path) {
 int main() {
     std::string path = "train_sample.csv";
     std::vector<std::vector<std::string> > dataset = loadDataset(path);
-    std::vector<std::string> first_row = dataset[0];
 
-    // Print the loaded data
     for (const auto& row : dataset) {
         for (const auto& cell : row) {
             std::cout << cell << " ";
